@@ -13,7 +13,7 @@ const Card = ({ article }) => {
      <p className="text-xl font-bold text-purple-600">{article.title}</p>
       <div>
         <p className="font-bold text-lg">{article.source.name}</p>
-        <p className="text-gray-400 font-semibold">
+        <p className="text-gray-400 font-semibold overflow-hidden">
           Author: <span className="text-gray-300">{article.author}</span>
         </p>
       </div>

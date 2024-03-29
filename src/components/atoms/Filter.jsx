@@ -27,12 +27,12 @@ const Filter = ({ filters,  onApplyFilter }) => {
   };
 
   return (
-    <div className="flex flex-col bg-transparent border border-gray-700 rounded p-5 gap-10">
+    <div className="w-full flex flex-col bg-transparent border border-gray-700 rounded p-5 gap-10">
       <div className="flex justify-between cursor-pointer" onClick={toggle}>
-        <p className="text-xl font-bold">
+        <p className="text-md md:text-xl font-bold">
           Find your perfect fit with our filter frenzy!
         </p>
-        <img src={filter} alt="" width="30px" height="30px" className=" cursor-pointer" />
+        <img src={filter} alt="" width="20px md:30px" height="20px md:30px" className="cursor-pointer" />
       </div>
       {isShowing && (
         <div className="flex flex-col gap-4">

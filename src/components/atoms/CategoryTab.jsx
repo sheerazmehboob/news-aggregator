@@ -3,7 +3,7 @@ import React from "react";
 
 const CategoryTabs = ({ categories, selectedCategory, onSelectCategory }) => {
   return (
-    <div className="flex flex-wrap gap-8 px-10 border-2 mx-10 border-gray-600 py-4 rounded">
+    <div className="flex overflow-x-auto gap-4 md:gap-8 px-5 md:px-10 border-2 mx-2 md:mx-10 border-gray-600 py-4 rounded">
       {categories.map((category, index) => (
         <button
           key={index}
