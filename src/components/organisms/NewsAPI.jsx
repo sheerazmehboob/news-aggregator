@@ -68,14 +68,14 @@ const NewsAPI = () => {
   };
 
   return (
-    <div className="w-full py-20">
+    <div className="w-full py-10 md:py-20">
       <CategoryTabs
         categories={categories}
         selectedCategory={selectedCategory}
         onSelectCategory={handleCategoryChange}
       />
 
-      <div className="flex flex-col p-10 gap-10 ">
+      <div className="flex flex-col p-3 my-10 md:my-0 md:p-10 gap-10 ">
         <Filter filters={filters} onApplyFilter={handleApplyFilters} />
         {articles && !loading && <CardContainer articles={articles} />}
       </div>
