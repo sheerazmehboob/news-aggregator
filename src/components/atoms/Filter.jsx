@@ -13,14 +13,16 @@ const Filter = ({ filters,  onApplyFilter }) => {
   const [sortBy, setSortBy] = useState(filters.sortBy ||  "");
   const languages = [ "ar", "de", "en", "es", "fr", "he", "it", "nl", "no", "pt", "ru", "sv", "ud", "zh", ];
 
+  console.log(toDate);
+
   const handleApplyFilter = () => {
     const filters = {
-      ...(searchQuery ? {searchQuery } : {}),
-      ...(selectedSources ? {selectedSources } : {}),
-      ...(fromDate ? { fromDate } : {}),
-      ...(toDate ? { toDate } : {}),
-      ...(selectedLanguage ? { selectedLanguage } : {}),
-      ...(sortBy ? { sortBy } : {}),
+      q: searchQuery ? searchQuery : "",
+      sources: selectedSources ? selectedSources : "",
+      from: fromDate ? fromDate : "",
+      to: toDate ? toDate : "",
+      language: selectedLanguage ? selectedLanguage : "",
+      sortBy: sortBy ? sortBy : "",
     };
     onApplyFilter(filters);
     toggle();
@@ -100,7 +102,7 @@ const Filter = ({ filters,  onApplyFilter }) => {
                 Language
               </option>
               {languages.map((language) => (
-                <option className=" bg-gray-600 text-white" value={language}>
+                <option key={language} className=" bg-gray-600 text-white" value={language}>
                   {language}
                 </option>
               ))}
