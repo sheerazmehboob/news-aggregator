@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from "react";
-import NewsAPI from "../components/organisms/NewsAPI";
+import NewsApiOrg from "../components/organisms/NewsApiOrg";
+import NewYorkTimes from "../components/organisms/NewYorkTimes";
 
 const News = () => {
 
   return (
-   <NewsAPI/>
+    <>      
+   <NewsApiOrg/>
+   <NewYorkTimes/>
+    </>
   );
 };
 
