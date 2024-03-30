@@ -28,7 +28,7 @@ const NewsDetail = () => {
         </div>
         <div className="mt-10 flex items-center justify-center">
           <img
-            src={article.urlToImage ||  article.multimedia ? article.urlToImage || "https://static01.nyt.com/"+article.multimedia[0].url : ""}
+            src={article.urlToImage ||  article.multimedia ? article.urlToImage || "https://static01.nyt.com/"+article.multimedia[0]?.url : ""}
             alt={article.title}
             className="max-h-[500px] object-contain rounded-lg shadow-md"
           />

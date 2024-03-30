@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from "react";
 import { fetchData } from "../../utils/fetchData";
 import CardContainer from "../molecules/CardContainer";
 import Pagination from "../atoms/Pagination";
-import Filter from "../atoms/Filter";
 import Loading from "../atoms/Loading";
 import { CategoryContext } from "../../context/CategoryContext";
 
@@ -20,13 +19,11 @@ const NewYorkTimes = () => {
       try {
         setLoading(true);
         const apiKey = process.env.REACT_APP_NYT_API_KEY;
-        const apiUrl = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+        const apiUrl = process.env.REACT_APP_NYT_API_URL;
         const queryParams = {
           "api-key": apiKey,
           page: currentPage,
-          "begin_date": "20220101", // Adjust begin date as needed
-          "end_date": "20220131", // Adjust end date as needed
-          "sort": "newest", // Sort by newest articles
+          "sort": "newest",
         };
 
         const data = await fetchData(apiUrl, {
@@ -53,16 +50,11 @@ const NewYorkTimes = () => {
     setCurrentPage(pageNumber);
   };
 
-  const handleApplyFilters = (selectedFilters) => {
-    console.log("Selected Filters:", selectedFilters);
-    setFilters(selectedFilters);
-    setCurrentPage(1);
-  };
 
   return (
     <div className="w-full py-10 md:py-20">
       <div className="flex flex-col p-3 my-10 md:my-0 md:p-10 gap-10 ">
-      <h1 className="text-3xl font-bold bg-gray-700 w-fit border-l-8 border-blue-700 px-4 py-2">Source: News York Times</h1>
+      <h1 className="text-2xl font-bold bg-gray-700 w-fit border-l-8 border-blue-700 px-4 py-2">Source: News York Times</h1>
         {articles && !loading && <CardContainer articles={articles} />}
       </div>
       {!loading && (
