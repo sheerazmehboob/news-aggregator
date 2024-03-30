@@ -21,7 +21,7 @@ const NewsApiOrg = () => {
       try {
         setLoading(true);
         const apiKey = process.env.REACT_APP_NEWS_API_ORG;
-        const apiUrl = "https://newsapi.org/v2/everything";
+        const apiUrl = process.env.REACT_APP_NEWS_API_URL;
         const queryParams = {
           apiKey: apiKey,
           page: currentPage,
@@ -55,7 +55,6 @@ const NewsApiOrg = () => {
   };
 
   const handleApplyFilters = (selectedFilters) => {
-    console.log("Selected Filters:", selectedFilters);
     setFilters(selectedFilters);
     setCurrentPage(1);
   };
@@ -63,18 +62,18 @@ const NewsApiOrg = () => {
   return (
     <div className="w-full py-10 md:py-20">
       <CategoryTabs />
-      <div className="flex flex-col p-3 my-10 md:my-0 md:p-10 gap-10 ">
+      <div className="flex flex-col p-3 my- md:my-0 md:p-10 gap-10 ">
         <Filter filters={filters} onApplyFilter={handleApplyFilters} />
       <h1 className="text-2xl font-bold bg-gray-700 w-fit border-l-8 border-blue-700 px-4 py-2">Source: News API.org</h1>
-        {articles && !loading && <CardContainer articles={articles} />}
+        {articles && articles.length>0 && !loading && <CardContainer articles={articles} />}
       </div>
-      {!loading && articles  && (
+      {!loading && articles.length > 0  ? (
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}
           onPageChange={handlePageChange}
         />
-      )}
+      ) : (<p className="text-center text-2xl text-red-600">No articles found</p>)}
       {loading && <Loading />}
     </div>
   );
