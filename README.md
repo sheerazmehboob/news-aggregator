@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+# News-Aggregator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a Dockerized React.js application that aggregates and displays the latest news from various sources using the News API and New York Times API. The application offers users the ability to filter news articles based on different criteria such as resources, dates, query, sorting, etc.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **News Aggregation:** Fetches the latest news from the News API and New York Times API, providing users with a comprehensive source of up-to-date information.
+- **Filtering Options:** Allows users to filter news articles based on various criteria including resources, dates, query, and sorting preferences, providing a tailored news browsing experience.
+- **Dockerized Deployment:** Utilizes Docker for streamlined setup and deployment, ensuring consistency across different environments and ease of scalability.
 
-### `npm start`
+## Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Before setting up the News Aggregator, ensure you have the following prerequisites installed on your system:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Docker:** Download and install Docker from the [official Docker website](https://www.docker.com/get-started).
 
-### `npm test`
+## Setup
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Follow these steps to set up and run the News Aggregator:
 
-### `npm run build`
+1. **Clone the Repository:**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    ```bash
+    git clone https://github.com/sheerazmehboob/news-aggregator.git
+    cd news-aggregator
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Set Up Environment Variables:**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    Create a `.env` file in the root directory of your project and add the necessary environment variables. These variables include API keys and URLs required for accessing the News API and New York Times API.
 
-### `npm run eject`
+    ```plaintext
+    REACT_APP_NEWS_API_ORG=
+    REACT_APP_NYT_API_KEY=
+    REACT_APP_NEWS_API_URL=https://newsapi.org/v2/everything
+    REACT_APP_NYT_API_URL=https://api.nytimes.com/svc/search/v2/articlesearch.json
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. **Build the Docker Image:**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    In the root directory, open a terminal and build the Docker image:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    ```bash
+    docker compose build
+    ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4. **Run the Docker Container:**
 
-## Learn More
+    Once the Docker image is built, run the Docker container:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    ```bash
+    docker compose up
+    ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+5. **Access the Application:**
 
-### Code Splitting
+    After the container is running, access the application by navigating to `http://localhost:3000` in your web browser.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Updating the Application
 
-### Analyzing the Bundle Size
+To update the News Aggregator with new features or bug fixes, follow these steps:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. Make the necessary changes to the application codebase.
+2. Rebuild the Docker image:
 
-### Making a Progressive Web App
+    ```bash
+    docker compose build
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+3. Restart the Docker container:
 
-### Advanced Configuration
+    ```bash
+    docker compose up
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Troubleshooting
 
-### Deployment
+If you encounter any issues during setup or runtime, refer to Docker's documentation and logs for troubleshooting steps. Additionally, you can reach out to the project maintainers for assistance by [opening an issue](https://github.com/sheerazmehboob/news-aggregator/issues).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Acknowledgements
 
-### `npm run build` fails to minify
+The News Aggregator would not be possible without the contributions of various individuals and organizations:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **News API:** Provides access to the latest news data from various sources.
+- **New York Times API:** Offers access to news articles published by The New York Times.
+- **Docker:** Simplifies the deployment process and ensures consistency across different environments.
+
+## Feedback and Support
+
+We value your feedback and are committed to providing ongoing support for the News Aggregator. If you have any suggestions, feature requests, or encounter any issues, please don't hesitate to [open an issue](https://github.com/sheerazmehboob/news-aggregator/issues). Your contributions are highly appreciated!
