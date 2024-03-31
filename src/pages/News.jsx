@@ -12,7 +12,7 @@ const News = () => {
   };
 
   return (
-    <div className="p-10">
+    <div className="md:p-10">
       <CategoryTab />
       <Filter filters={filters} onApplyFilter={handleApplyFilters} />
       <NewsApiOrg filters={filters} />

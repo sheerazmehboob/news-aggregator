@@ -9,7 +9,7 @@ const CategoryTabs = () => {
   };
 
   return (
-    <div className="flex overflow-x-auto gap-4 md:gap-8 px-5 md:px-10 border-2 border-gray-600 py-4 rounded mb-5">
+    <div className="flex overflow-x-auto gap-4 md:gap-8 px-2 mx-2 md:mx-0 md:px-10 border-2 border-gray-600 py-4 rounded mb-5">
       {categories.map((categoryName, index) => (
         <button
           key={index}
