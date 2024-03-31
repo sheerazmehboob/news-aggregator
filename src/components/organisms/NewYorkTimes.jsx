@@ -5,14 +5,13 @@ import Pagination from "../atoms/Pagination";
 import Loading from "../atoms/Loading";
 import { CategoryContext } from "../../context/CategoryContext";
 
-const NewYorkTimes = () => {
+const NewYorkTimes = ({ filters }) => {
   const { category } = useContext(CategoryContext);
   const [articles, setArticles] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [pageSize] = useState(10);
   const [loading, setLoading] = useState(false);
-  const [filters, setFilters] = useState({});
 
   useEffect(() => {
     async function fetchNews() {
@@ -24,6 +23,13 @@ const NewYorkTimes = () => {
           "api-key": apiKey,
           page: currentPage,
           "sort": "newest",
+          q: filters.q || category,
+          // apply filters only if they are present in the query params object otherwsie don't send them to the API call
+          // this is to avoid sending empty query params to the API which may result in an error response from the API server
+          ...(filters.from ? { "begin_date": filters.from } : {}),
+          ...(filters.to ? { "end_date": filters.to } : {}),
+          ...(filters.sources ? { "fq": `source:("${filters.sources}")` } : {}),
+          ...(filters.language ? { "fq": `language:("${filters.language}")` } : {}),
         };
 
         const data = await fetchData(apiUrl, {
@@ -44,7 +50,7 @@ const NewYorkTimes = () => {
     }
 
     fetchNews();
-  }, [currentPage, category]);
+  }, [currentPage, category, filters]);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -54,7 +60,7 @@ const NewYorkTimes = () => {
   return (
     <div className="w-full py-10 md:py-20">
       <div className="flex flex-col p-3 my-10 md:my-0 md:p-10 gap-10 ">
-      <h1 className="text-2xl font-bold bg-gray-700 w-fit border-l-8 border-blue-700 px-4 py-2">Source: News York Times</h1>
+        <h1 className="text-2xl font-bold bg-gray-700 w-fit border-l-8 border-blue-700 px-4 py-2">Source: New York Times</h1>
         {articles && !loading && <CardContainer articles={articles} />}
       </div>
       {!loading && (
