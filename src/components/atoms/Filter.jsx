@@ -1,4 +1,3 @@
-// Filter.jsx
 import React, { useState } from "react";
 import filter from "../../assets/images/filter.png";
 import useModal from "../../hooks/useModal";
@@ -29,7 +28,7 @@ const Filter = ({ filters,  onApplyFilter }) => {
   };
 
   return (
-    <div className="w-full flex flex-col bg-transparent border border-gray-700 rounded p-5 gap-10">
+    <div className="w-full flex flex-col bg-transparent border border-gray-700 rounded p-3 gap-10">
       <div className="flex justify-between cursor-pointer" onClick={toggle}>
         <p className="text-md md:text-xl font-bold">
           Find your perfect fit with our filter frenzy!

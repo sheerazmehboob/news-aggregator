@@ -9,7 +9,7 @@ const Card = ({ article }) => {
     navigate("/detail", { state: { article } });
   }
   return (
-    <div className="border-2 w-[260px] sm:w-[300px] md:w-[320px] lg:w-[330px] min-h-[450px] border-zinc-700 rounded-xl p-4 hover:scale-105 duration-300 ease-linear hover:shadow-md hover:shadow-blue-600 cursor-pointer" onClick={handleClick}>
+    <div className="border-2 w-[260px] sm:w-[300px] md:w-[320px] min-h-[420px] border-zinc-700 rounded-xl p-4 hover:scale-105 duration-300 ease-linear hover:shadow-md hover:shadow-blue-600 cursor-pointer" onClick={handleClick}>
      <p className="text-xl font-bold text-purple-600">{article.title || article.headline.main}</p>
       <div>
         <p className="font-bold text-lg">{article?.source?.name || article?.source || "Unknown"}</p>
