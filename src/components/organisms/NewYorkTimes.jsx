@@ -58,8 +58,8 @@ const NewYorkTimes = ({ filters }) => {
 
 
   return (
-    <div className="w-full py-10 md:py-20">
-      <div className="flex flex-col p-3 my-10 md:my-0 md:p-10 gap-10 ">
+    <div className="w-full">
+      <div className="flex flex-col p-3 my-10 md:my-0 md:py-10 gap-10 ">
         <h1 className="text-2xl font-bold bg-gray-700 w-fit border-l-8 border-blue-700 px-4 py-2">Source: New York Times</h1>
         {articles && !loading && <CardContainer articles={articles} />}
       </div>
