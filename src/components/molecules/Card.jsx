@@ -18,7 +18,7 @@ const Card = ({ article }) => {
         </p>
       </div>
       <div className="h-[150px] w-full flex justify-center items-center overflow-hidden my-5">
-        <img src={article.urlToImage || article.multimedia ? article.urlToImage || "https://static01.nyt.com/"+article.multimedia[0]?.url : logo} className=" h-full object-contain border border-gray-800 p-2" />
+        <img alt="" src={article.urlToImage || article.multimedia ? article.urlToImage || "https://static01.nyt.com/"+article.multimedia[0]?.url : logo} className=" h-full object-contain border border-gray-800 p-2" />
       </div>
       <p className="w-full text-gray-500">
         {article.description || article.abstract ? truncate(article?.description?.toString() || article.abstract, 120) : ""}
