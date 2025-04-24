@@ -30,8 +30,8 @@ Follow these steps to set up and run the News Aggregator:
     Create a `.env` file in the root directory of your project and add the necessary environment variables. These variables include API keys and URLs required for accessing the News API and New York Times API.
 
     ```plaintext
-    REACT_APP_NEWS_API_ORG=
-    REACT_APP_NYT_API_KEY=
+    REACT_APP_NEWS_API_ORG=YOUR_KEY
+    REACT_APP_NYT_API_KEY=YOUR_KEY
     REACT_APP_NEWS_API_URL=https://newsapi.org/v2/everything
     REACT_APP_NYT_API_URL=https://api.nytimes.com/svc/search/v2/articlesearch.json
     ```
